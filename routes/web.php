@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\UserController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -61,5 +62,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //$users = User::all();
     $users = DB::table('users')->get();
     
-    return view('dashboard', compact('users'));
+    return view('admin.index');
 })->name('dashboard');
+
+Route::get('/user/logout',[UserController::class, 'Logout'])->name('admin.logout');
