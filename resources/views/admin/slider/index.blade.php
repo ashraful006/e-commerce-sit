@@ -48,12 +48,12 @@
                             
                             @foreach($sliders as $var)
                             <tr>
-                                <td scope="row">{{ $sliders->firstItem()+$loop->index }}</td>
-                                <td>{{$var->title}}</td>
-                                <td>{{$var->description}}</td>
-                                <td><img src="{{ asset($var->image) }}" style="height:40px; width:70px" alt=""></td>
+                                <td width="5%" scope="row">{{ $loop->iteration }}</td>
+                                <td width="15%">{{$var->title}}</td>
+                                <td width="25%">{{$var->description}}</td>
+                                <td width="30%"><img src="{{ asset($var->image) }}" style="height:100px; width:200px" alt=""></td>
                                 
-                                <td>
+                                <td width="5%">
                                     @if($var->created_at == NULL)
                                     <span class="text-danger">Not available</span>
                                     @else
@@ -61,7 +61,7 @@
                                     @endif
                                     
                                 </td>
-                                <td>
+                                <td width="20%">
                                 <a href="{{ url('brand/edit/'.$var->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ url('brand/delete/'.$var->id) }}"  onclick="return confirm('Are you sure want to delete this item?')" class="btn btn-danger">Delete</a>
                                 </td>

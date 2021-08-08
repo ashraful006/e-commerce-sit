@@ -56,7 +56,7 @@ class HomeController extends Controller
         $image = 'image/slider/'.$unique_name;
 
         Slider::insert([
-            'title' => $request->brand_name,
+            'title' => $request->title,
             'image' => $image,
             'description' => $request->description,
             'created_at' => Carbon::now(),
