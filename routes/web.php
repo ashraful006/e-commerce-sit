@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 
 use App\Models\User;
@@ -23,7 +24,10 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+
+    $brands= DB::table('brands')->get();
+    return view('home', compact('brands'));
 });
 
 
@@ -32,6 +36,8 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/contact', [ ContactController::class, 'index' ]);
 
 
+
+// All Admin Routes
 
 // category
 
@@ -52,6 +58,11 @@ Route::get('/brand/edit/{id}', [ BrandController::class, 'Edit']);
 Route::post('/brand/update/{id}',[BrandController::class, 'Update']);
 Route::get('/brand/delete/{id}',[BrandController::class, 'Delete']);
 
+//Slider
+
+Route::get('/slider/all',[HomeController::class, 'HomeSlider'])->name('home.slider');
+Route::get('/slider/add',[HomeController::class, 'AddSlider'])->name('add.home.slider');
+Route::post('/slider/store',[HomeController::class, 'StoreSlider'])->name('store.home.slider');
 
 
 
