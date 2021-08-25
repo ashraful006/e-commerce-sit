@@ -12,4 +12,5 @@ class UserController extends Controller
         Auth::logout();
         return Redirect()->route('login')->with('success','User logged out');
     }
+
 }

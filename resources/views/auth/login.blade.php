@@ -15,10 +15,24 @@
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
+                        
                         <div class="row justify-content-center">
+                            
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    @if(session('error'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <span class="text-danger">{{session('error')}}</span> 
+                                        
+                                    </div>
+                                    @endif
+                                    @if(session('success'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <span class="text-danger">{{session('success')}}</span> 
+                                            
+                                        </div>
+                                    @endif
                                     <div class="card-body">
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
