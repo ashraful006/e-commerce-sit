@@ -46,8 +46,13 @@ class AboutController extends Controller
             ]
         );
 
+        $notification = array(
+            'message' => 'About added successfully',
+            'alert-type' => 'success'
+        );
 
-        return redirect()->route('home.about')->with('success','Added successfully');
+
+        return redirect()->route('home.about')->with($notification);
 
     }
 
@@ -77,7 +82,12 @@ class AboutController extends Controller
             'description' => $request->description,
         ]);
 
-        return Redirect()->route('home.about')->with('success','About updated successfully');
+        $notification = array(
+            'message' => 'About updated successfully',
+            'alert-type' => 'success'
+        );
+
+        return Redirect()->route('home.about')->with($notification);
 
     }
 
